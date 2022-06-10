@@ -20,6 +20,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.launcher3">
 
     <SwitchPreference
+        android:key="pref_allow_phone_taskbar"
+        android:title="@string/pref_allow_phone_taskbar_title"
+        android:summary="@string/pref_allow_phone_taskbar_summary"
+        launcher:iconSpaceReserved="false" 
+        android:layout="@layout/top_level_preference_top_card" />
+
+    <SwitchPreference
         android:key="pref_allowRotation"
         android:title="@string/allow_rotation_title"
         android:summary="@string/allow_rotation_desc"

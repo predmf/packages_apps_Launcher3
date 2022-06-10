@@ -82,6 +82,8 @@ public class DeviceProfile {
 
     public static final String KEY_ROW_HEIGHT = "pref_row_height";
 
+    public static final String KEY_PHONE_TASKBAR = "pref_allow_phone_taskbar";
+
     private static final int DEFAULT_DOT_SIZE = 100;
     private static final float MIN_FOLDER_TEXT_SIZE_SP = 16f;
     private static final float MIN_WIDGET_PADDING_DP = 6f;
@@ -354,7 +356,7 @@ public class DeviceProfile {
                 && inv.workspaceCellSpecsId != INVALID_RESOURCE_HANDLE
                 && inv.allAppsCellSpecsId != INVALID_RESOURCE_HANDLE;
 
-	SharedPreferences prefs = LauncherPrefs.getPrefs(context);
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context);
 
         mIsScalableGrid = inv.isScalable && !isVerticalBarLayout() && !isMultiWindowMode;
         // Determine device posture.
@@ -362,9 +364,8 @@ public class DeviceProfile {
         isTablet = info.isTablet(windowBounds);
         isPhone = !isTablet;
         isTwoPanels = isTablet && isMultiDisplay;
-        boolean isTaskBarEnabled = Settings.System.getInt(context.getContentResolver(),
-                Settings.System.ENABLE_TASKBAR, isTablet ? 1 : 0) == 1;
-        isTaskbarPresent = isTaskBarEnabled && ApiWrapper.TASKBAR_DRAWN_IN_PROCESS;
+        boolean allowTaskbar = prefs.getBoolean(KEY_PHONE_TASKBAR, isTablet);
+        isTaskbarPresent = allowTaskbar && ApiWrapper.TASKBAR_DRAWN_IN_PROCESS;
 
         // Some more constants.
         context = getContext(context, info, isVerticalBarLayout() || (isTablet && isLandscape)

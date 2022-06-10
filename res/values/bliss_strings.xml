@@ -416,4 +416,9 @@
     <!-- Toast for Clear All, App Locked n Unlocked -->
     <string name="action_toast_enabled_title">Action Toasts</string>
     <string name="action_toast_enabled_summary">Enable-disable Toast clear all</string>
+
+    <!-- Taskbar -->
+    <string name="pref_allow_phone_taskbar_title">Use taskbar</string>
+    <string name="pref_allow_phone_taskbar_summary">For opening and switching apps anywhere</string>
+
 </resources>

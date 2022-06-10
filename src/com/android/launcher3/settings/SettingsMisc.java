@@ -131,6 +131,8 @@ public class SettingsMisc extends CollapsingToolbarBaseActivity
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) { 
         switch (key) {
             case Utilities.KEY_BLUR_DEPTH:
+              LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+            case DeviceProfile.KEY_PHONE_TASKBAR:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:
