@@ -30,7 +30,6 @@ import android.app.KeyguardManager;
 import android.app.Person;
 import android.app.WallpaperManager;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
@@ -909,11 +908,6 @@ public final class Utilities {
         dateFormat = DateFormat.getInstanceForSkeleton(styleText, Locale.getDefault());
         dateFormat.setContext(DisplayContext.CAPITALIZATION_FOR_STANDALONE);
         return dateFormat.format(System.currentTimeMillis());
-    }
-
-    public static boolean isWorkspaceEditAllowed(Context context) {
-        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
-        return !prefs.getBoolean(InvariantDeviceProfile.KEY_WORKSPACE_LOCK, false);
     }
 
     public static boolean isGSAEnabled(Context context) {

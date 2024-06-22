@@ -23,16 +23,6 @@
         android:title="@string/general_category_title">
 
         <SwitchPreference
-            android:defaultValue="false"
-            android:key="pref_workspace_lock"
-            android:persistent="true"
-            android:title="@string/settings_lock_layout_title"
-            android:summaryOn="@string/settings_lock_layout_summary_on"
-            android:summaryOff="@string/settings_lock_layout_summary_off"
-            android:layout="@layout/top_level_preference_top_card"
-            launcher:iconSpaceReserved="false" />
-
-        <SwitchPreference
             android:key="pref_add_icon_to_home"
             android:title="@string/auto_add_shortcuts_label"
             android:summary="@string/auto_add_shortcuts_description"
